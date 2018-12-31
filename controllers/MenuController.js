@@ -10,6 +10,7 @@ module.exports = class MenuController {
         choices: [
           "Add new contact",
           "Get date",
+          "Get contact count",
           "Exit"
         ]
       }
@@ -23,6 +24,10 @@ module.exports = class MenuController {
       switch(response.mainMenuChoice) {
         case "Add new contact":
           this.addContact();
+          break;
+        case "Get contact count":
+          this.getContactCount();
+          this.main();
           break;
         case "Get date":
           this.getDate();
@@ -47,6 +52,11 @@ module.exports = class MenuController {
     this.clear();
     console.log('addContact called');
     this.main();
+  }
+
+  getContactCount() {
+    console.log(this.contacts.length);
+    return this.contacts.length;
   }
 
   getDate() {
